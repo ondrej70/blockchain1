@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import BlockDetails from "./BlockDetails";
 import HeaderComponent from "./HeaderComponent";
 import FooterComponent from "./FooterComponent";
+import PageNotFound from "./PageNotFound";
 
 function App() {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -80,6 +81,8 @@ function App() {
     setArr(arr.slice(0, -1));
   }
 
+  console.log(arr);
+
 
   return (
     <>
@@ -87,6 +90,7 @@ function App() {
     <Routes>
       <Route path="/" element={<DisplayBlockChain arr={arr} changeBlock={changeBlock} updateBlock={updateBlock} updatePreviousHashOfThisBlock={updatePreviousHashOfThisBlock} deleteLastBlock={deleteLastBlock} generateBlock={generateBlock}/>} />
       <Route path="/block/:hash" element={<BlockDetails arr={arr} changeBlock={changeBlock} updateBlock={updateBlock} updatePreviousHashOfThisBlock={updatePreviousHashOfThisBlock} deleteLastBlock={deleteLastBlock} generateBlock={generateBlock} />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
     <FooterComponent />
     </>

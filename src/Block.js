@@ -51,7 +51,7 @@ const Block = ({block, isDetail, changeBlock, correct, updateBlock, updatePrevio
             <button onClick={() => updateBlock(block)} disabled={isDetail}>Mine block</button>
         </div>}
         <div>
-            <Link to={`/block/${block.hash}`} title="Show description of block parts.">SHOW DESCRIPTION OF THIS BLOCK </Link>
+            <Link to={`/block/${block.hash}`} title="Show description of particular block parts.">SHOW DESCRIPTION OF THIS BLOCK</Link>
             <div>
                 {(isLast && false) && <button className="remove-block-button" onClick={deleteLastBlock} title="Delete this block.">Delete</button>}
                 <button className="copy-block-button" onClick={copyBlockContent} title="Copy block data.">Copy</button>

@@ -1,19 +1,21 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import PageNotFound from './PageNotFound';
 
 const BlockDetails = ({arr: blockchain}) => {
     const {hash} = useParams();
 
-    const detailedBlock = blockchain.find(block => block.hash = hash);
+    const detailedBlock = blockchain.find(block => block.hash === hash);
 
         return (
-          <div className="block-chain info">
+          <>
+          {detailedBlock && <main className="block-chain info">
 
             <div className="block-container">
               <div className="block description-block">
                 <p>Prev. hash</p>
                 <div>
-                  <p>{detailedBlock.hash}</p>
+                  <p>{detailedBlock.previousHash}</p>
                   <p>The hash of previous block in the blockchain. If there is no block in the blockchain with hash that is Prev. hash of a block, then that block is not a part of the blockchain.</p>
                 </div>
                 <p>Time</p>
@@ -40,7 +42,9 @@ const BlockDetails = ({arr: blockchain}) => {
             </div>
 
             <button className="back-home-button"><Link to="/">↩ Go back home</Link></button>
-          </div>
+          </main>}
+          {!detailedBlock && <PageNotFound />}
+          </>
         )
 }
 

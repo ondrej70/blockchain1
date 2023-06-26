@@ -7,7 +7,7 @@ const DisplayBlockChain = ({arr: blockchain, changeBlock, updateBlock, updatePre
   let previousColor = `rgba(0, 0, 0, .22)`;
 
   return (
-    <div className='block-chain'>
+    <main className='block-chain'>
         {(blockchain.length > 0) && blockchain.map((block, i) => {
 
             let correct = {
@@ -26,7 +26,7 @@ const DisplayBlockChain = ({arr: blockchain, changeBlock, updateBlock, updatePre
               return <Block key={i} block={block} isDetail={false} changeBlock={changeBlock} updateBlock={updateBlock} updatePreviousHashOfThisBlock={updatePreviousHashOfThisBlock} correct={correct} deleteLastBlock={deleteLastBlock} isLast={i === blockchain.length - 1} prevColor={prevColor}/>
           })}
           <NewBlockGenerator generateBlock={generateBlock} />
-    </div>
+    </main>
   )
 }
 
